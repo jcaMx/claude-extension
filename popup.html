@@ -1,87 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DeepSeek Assistant</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    :root {
+      --primary-color: #DD5721;
+      --primary-hover: #C24A1C;
+      --bg-color: #FFFFFF;
+      --text-color: #333333;
+      --border-color: #E1E1E1;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+      padding: 16px;
       width: 300px;
-      padding: 15px;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       margin: 0;
-      background-color: #f5f5f5;
-      color: #333;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
     }
-    
-    h3 {
-      color: #2c3e50;
-      margin-top: 0;
-      margin-bottom: 15px;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .logo {
+      width: 28px;
+      height: 28px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+    }
+
+    h1 {
+      margin: 0;
       font-size: 18px;
-      text-align: center;
+      font-weight: 600;
     }
-    
-    #question {
+
+    label {
+      font-weight: 500;
+      font-size: 14px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    textarea {
       width: 100%;
-      height: 100px;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      resize: vertical;
-      box-sizing: border-box;
+      height: 120px;
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
       font-family: inherit;
+      font-size: 14px;
+      resize: none;
+      box-sizing: border-box;
+      transition: border 0.2s ease;
     }
-    
-    #submit-question {
+
+    textarea:focus {
+      outline: none;
+      border: 1px solid var(--primary-color);
+    }
+
+    textarea::placeholder {
+      color: #999;
+    }
+
+    button {
       width: 100%;
-      padding: 10px;
-      background-color: #d86447;
+      padding: 12px;
+      background-color: var(--primary-color);
       color: white;
       border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-    
-    #submit-question:hover {
-      background-color: #ac3f00;
-    }
-    
-    #submit-question:active {
-      background-color: #d86447;
-    }
-    
-    .status {
-      margin-top: 15px;
-      padding: 10px;
-      border-radius: 4px;
+      border-radius: 8px;
+      font-weight: 600;
       font-size: 14px;
-      display: none;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
     }
-    
-    .status.success {
-      background-color: #e6f4ea;
-      color: #0d652d;
-      display: block;
+
+    button:hover {
+      background-color: var(--primary-hover);
     }
-    
-    .status.error {
-      background-color: #fce8e6;
-      color: #d93025;
-      display: block;
+
+    .footer {
+      font-size: 12px;
+      color: #777;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* Simple dark mode support */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #222222;
+        --text-color: #F0F0F0;
+        --border-color: #444444;
+      }
+      
+      textarea {
+        background-color: #333333;
+        color: #F0F0F0;
+      }
+      
+      textarea::placeholder {
+        color: #888;
+      }
     }
   </style>
 </head>
 <body>
-  <h3>Ask Claude a question</h3>
-  <textarea id="question" placeholder="Type your question here..."></textarea>
-  <button id="submit-question">Get Answer</button>
-  <div class="status" id="status"></div>
-
+  <div class="container">
+    <div class="header">
+      <div class="logo"></div>
+      <h1>Chat with Claude</h1>
+    </div>
+    
+    <div>
+      <label for="chatInput">What can I help you with today?</label>
+      <textarea id="chatInput" placeholder="Type your question here..."></textarea>
+    </div>
+    
+    <button id="sendBtn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+      Get Answer
+    </button>
+    
+    <div class="footer">
+      Powered by Anthropic
+    </div>
+  </div>
+  
   <script src="popup.js"></script>
-  <script src="inject.js"></script>
 </body>
 </html>

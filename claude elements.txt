@@ -1,0 +1,43 @@
+TEXT INPUT
+
+<div aria-label="Write your prompt to Claude" class="max-h-96 w-full overflow-y-auto break-words min-h-[3rem]"><div contenteditable="true" translate="no" enterkeyhint="enter" tabindex="0" class="ProseMirror break-words max-w-[60ch]"><p>zssd</p></div></div>
+
+<div aria-label="Write your prompt to Claude" class="max-h-96 w-full overflow-y-auto break-words min-h-[3rem]"><div contenteditable="true" translate="no" enterkeyhint="enter" tabindex="0" class="ProseMirror break-words max-w-[60ch]"><p>zssd</p></div></div>
+
+<p>create 1 sentence about claude</p>
+
+-----------------------
+SEND BUTTON
+<div data-state="closed"><button class="inline-flex
+  items-center
+  justify-center
+  relative
+  shrink-0
+  can-focus
+  select-none
+  disabled:pointer-events-none
+  disabled:opacity-50
+  disabled:shadow-none
+  disabled:drop-shadow-none bg-accent-main-000
+          text-oncolor-100
+          font-styrene
+          font-medium
+          transition-colors
+          hover:bg-accent-main-200 h-8 w-8 rounded-md active:scale-95 !rounded-lg !h-8 !w-8" type="button" aria-label="Send message"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M208.49,120.49a12,12,0,0,1-17,0L140,69V216a12,12,0,0,1-24,0V69L64.49,120.49a12,12,0,0,1-17-17l72-72a12,12,0,0,1,17,0l72,72A12,12,0,0,1,208.49,120.49Z"></path></svg></button></div>
+
+<button class="inline-flex
+  items-center
+  justify-center
+  relative
+  shrink-0
+  can-focus
+  select-none
+  disabled:pointer-events-none
+  disabled:opacity-50
+  disabled:shadow-none
+  disabled:drop-shadow-none bg-accent-main-000
+          text-oncolor-100
+          font-styrene
+          font-medium
+          transition-colors
+          hover:bg-accent-main-200 h-8 w-8 rounded-md active:scale-95 !rounded-lg !h-8 !w-8" type="button" aria-label="Send message"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M208.49,120.49a12,12,0,0,1-17,0L140,69V216a12,12,0,0,1-24,0V69L64.49,120.49a12,12,0,0,1-17-17l72-72a12,12,0,0,1,17,0l72,72A12,12,0,0,1,208.49,120.49Z"></path></svg></button>

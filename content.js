@@ -165,3 +165,4 @@ if (window.location.href.includes("claude.ai")) {
     // initSidebar();
   });
 }
+ 
