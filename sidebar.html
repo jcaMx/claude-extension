@@ -3,15 +3,176 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Claude Assistant Sidebar</title>
-  <link rel="stylesheet" href="sidebar.css">
+  <title>Anthropic Assistant</title>
+  <style>
+    :root {
+      --anthropic-primary: #D35C37;
+      --anthropic-secondary: #F17C4B;
+      --anthropic-light: #FFEDE7;
+      --anthropic-dark: #A03F20;
+      --anthropic-gray: #F0F0F0;
+      --anthropic-text: #333333;
+    }
+    
+    * {
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    
+    body {
+      margin: 0;
+      padding: 16px;
+      color: var(--anthropic-text);
+      background-color: #FFFFFF;
+    }
+    
+    .anthropic-sidebar {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .anthropic-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    
+    .anthropic-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: var(--anthropic-primary);
+      margin-right: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+    
+    .anthropic-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--anthropic-dark);
+    }
+    
+    .input-container {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+    
+    label {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--anthropic-dark);
+    }
+    
+    textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: 12px;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      font-size: 14px;
+      resize: vertical;
+      transition: border 0.2s ease;
+    }
+    
+    textarea:focus {
+      outline: none;
+      border-color: var(--anthropic-primary);
+      box-shadow: 0 0 0 2px rgba(211, 92, 55, 0.1);
+    }
+    
+    textarea::placeholder {
+      color: #AAAAAA;
+    }
+    
+    button {
+      background-color: var(--anthropic-primary);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    
+    button:hover {
+      background-color: var(--anthropic-dark);
+    }
+    
+    button:disabled {
+      background-color: #CCCCCC;
+      cursor: not-allowed;
+    }
+    
+    .char-counter {
+      font-size: 12px;
+      color: #888888;
+      text-align: right;
+      margin-top: 4px;
+    }
+    
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      color: #666666;
+      margin-top: 12px;
+    }
+    
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #4CAF50;
+      margin-right: 6px;
+    }
+    
+    @media (max-width: 480px) {
+      .anthropic-sidebar {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="claude-sidebar-content">
-    <h3>Ask Claude a question</h3>
-    <textarea id="claude-question-input" placeholder="Type your question here..."></textarea>
-    <button id="claude-submit-question" class="claude-submit-btn">Get Answer</button>
+  <div class="anthropic-sidebar">
+    <div class="anthropic-header">
+      <div class="anthropic-logo">C</div>
+       <!-- <div class="anthropic-logo">
+        <img src="icons/icon128.png" alt="">
+       </div> -->
+      <div class="anthropic-title">Claude Sidebar Assistant</div>
+    </div>
+    
+    <div class="input-container">
+      <label for="chatInput">Ask a question</label>
+      <textarea 
+        id="chatInput" 
+        placeholder="Type your question here..."
+        aria-label="Your question"></textarea>
+      <div class="char-counter"><span id="charCount">0</span> characters</div>
+    </div>
+    
+    <button id="sendBtn">
+      Send
+    </button>
+    
+    <div class="status-indicator">
+      <div class="status-dot"></div>
+      <span>Ready</span>
+    </div>
   </div>
+
   <script src="sidebar.js"></script>
 </body>
 </html>

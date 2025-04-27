@@ -1,41 +1,20 @@
-
 {
   "manifest_version": 3,
   "name": "Claude Assistant Sidebar",
-  "version": "1.0.0",
-  "description": "A sidebar to quickly ask questions to Claude directly from the Claude.ai interface",
+  "version": "1.5.0",
+  "description": "A sidebar to quickly ask questions to Claude directly from a side panel",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "icons/icon16.png",
-      "32": "icons/icon32.png",
-      "48": "icons/icon48.png",
-      "128": "icons/icon128.png"
-    },
-    "default_title": "Claude Assistant Sidebar"
-  },
   "background": {
     "service_worker": "background.js"
   },
-  "content_scripts": [
-    {
-      "matches": ["*://claude.ai/*"],
-      "js": ["content.js"],
-      "css": ["sidebar.css"]
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": ["sidebar.html", "sidebar.js", "sidebar.css"],
-      "matches": ["*://claude.ai/*"]
-    }
-  ],
-  "permissions": ["activeTab", "scripting"],
-  "host_permissions": ["*://claude.ai/*"]
+  "permissions": ["sidePanel", "activeTab", "scripting"],
+  "host_permissions": ["*://claude.ai/*"],
+  "side_panel": {
+    "default_path": "sidebar.html"
+  }
 }
